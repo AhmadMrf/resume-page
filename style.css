@@ -74,7 +74,6 @@ a {
   --white-font: #FAFAFA;
   --paragraph: #767676;
 
-
   --x-larg-1: normal 700 4.8rem inter, arial;
   --x-larg-2: normal 700 3.2rem inter, arial;
   --x-larg-3: normal 700 1.4rem inter, arial;
@@ -87,5 +86,4 @@ a {
   --small-1: normal 400 1.5rem inter, arial;
   --small-2: normal 400 1.2rem inter, arial;
   --small-3: normal 400 1.0rem inter, arial;
-  
 }
