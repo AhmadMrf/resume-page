@@ -19,6 +19,7 @@ html, body {
 }
 body {
   font-size: 1.6rem;
+  font-family: inter;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -71,5 +72,20 @@ a {
   --dark-view1: #242526;
   --dark-view2: #3A3B3C;
   --white-font: #FAFAFA;
-  --paragraph-font: #767676;
+  --paragraph: #767676;
+
+
+  --x-larg-1: normal 700 4.8rem inter, arial;
+  --x-larg-2: normal 700 3.2rem inter, arial;
+  --x-larg-3: normal 700 1.4rem inter, arial;
+  --larg-1: normal 600 2.4rem inter, arial;
+  --larg-2: normal 600 1.4rem inter, arial;
+  --medium-1: normal 500 1.8rem inter, arial;
+  --medium-2: normal 500 1.6rem inter, arial;
+  --medium-3: normal 500 1.4rem inter, arial;
+  --medium-4: normal 500 1.2rem inter, arial;
+  --small-1: normal 400 1.5rem inter, arial;
+  --small-2: normal 400 1.2rem inter, arial;
+  --small-3: normal 400 1.0rem inter, arial;
+  
 }
