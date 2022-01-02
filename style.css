@@ -59,3 +59,17 @@ a {
   text-decoration: none;
 }
 
+/* ---- Variables ---- */
+:root {
+  --black: #2B2B2B;
+  --white: #FFFFFF;
+  --yellow: #ffb400;
+  --yellow2: #ffb40095;
+  --available: #7EB942;
+  --background: #F0F0F6;
+  --dark-background: #18191A;
+  --dark-view1: #242526;
+  --dark-view2: #3A3B3C;
+  --white-font: #FAFAFA;
+  --paragraph-font: #767676;
+}
