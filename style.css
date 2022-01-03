@@ -15,6 +15,7 @@ html {
   font-size: 10px;
 }
 html, body {
+  background-color: var(--background);
   height: 100%;
 }
 body {
@@ -86,4 +87,14 @@ a {
   --small-1: normal 400 1.5rem inter, arial;
   --small-2: normal 400 1.2rem inter, arial;
   --small-3: normal 400 1.0rem inter, arial;
+}
+
+.top-navigation-menus{
+  background-color: var(--white);
+  height: 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  position: fixed;
 }
