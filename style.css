@@ -25,23 +25,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 table, thead, tbody, tfoot, tr, th, td {
-   display: block;
-   width: auto;
-   height: auto;
-   margin: 0;
-   padding: 0;
-   border: none;
-   border-collapse: inherit;
-   border-spacing: 0;
-   border-color: inherit;
-   vertical-align: inherit;
-   text-align: left;
-   font-weight: inherit;
-   -webkit-border-horizontal-spacing: 0;
-   -webkit-border-vertical-spacing: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-collapse: inherit;
+  border-spacing: 0;
+  border-color: inherit;
+  vertical-align: inherit;
+  text-align: left;
+  font-weight: inherit;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
 }
 th, td {
-   display: inline;
+  display: inline;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -54,7 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 a {
   color: inherit;
@@ -74,7 +74,7 @@ a {
   --dark-view2: #3A3B3C;
   --white-font: #FAFAFA;
   --paragraph: #767676;
-
+  
   --x-larg-1: normal 700 4.8rem inter, arial;
   --x-larg-2: normal 700 3.2rem inter, arial;
   --x-larg-3: normal 700 1.4rem inter, arial;
@@ -88,7 +88,10 @@ a {
   --small-2: normal 400 1.2rem inter, arial;
   --small-3: normal 400 1.0rem inter, arial;
 }
-
+main{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
 .top-navigation-menus{
   background-color: var(--white);
   height: 3.5rem;
@@ -96,5 +99,34 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
+  position: fixed;
+  z-index: 1000;
+}
+.left-menu, .right-menu {
+  display: none;
+}
+.main-menu{
+  grid-column: span 12;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+.main-menu-content{
+  width: 90%;
+  margin-bottom: 5rem;
+}
+
+header.main-menu-content{
+  position: relative;
+  background-color: var(--white);
+}
+header p, header img{
+  display: none;
+}
+header h1 span{
+  display: block;
+}
+header svg.shape{
   position: fixed;
 }
