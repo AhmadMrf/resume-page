@@ -91,12 +91,14 @@ a {
 main{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  text-transform: capitalize;
 }
 .top-navigation-menus{
   background-color: var(--white);
   height: 3.5rem;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
   position: fixed;
@@ -108,25 +110,88 @@ main{
 .main-menu{
   grid-column: span 12;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding-top: 4rem;
+  align-items: center;
+  padding-top: 5rem;
 }
 .main-menu-content{
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 92%;
   margin-bottom: 5rem;
 }
+.main-menu-content h2,
+.main-menu-content p,
+.main-menu-content h3,
+.main-menu-content h4 {
+  text-align: center;
+}
+
+/* --- general styles --- */
+
+.btn-rect-style{
+  background: var(--yellow);
+  border-radius: .5rem;
+}
+
+/* --- header styles --- */
 
 header.main-menu-content{
   position: relative;
+  padding: 6rem;
   background-color: var(--white);
 }
 header p, header img{
   display: none;
 }
+header .btn-rect-style{
+  text-transform: uppercase;
+  font: var(--medium-2);
+  width: 17.5rem;
+  height: 5.5rem;
+  padding: 1.6rem 2rem;
+}
+header .btn-rect-style::after{
+  content: url(./icons/arrow.svg);
+  margin-left: 1rem;
+}
+header h1{
+  font: var(--x-larg-2);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
 header h1 span{
   display: block;
 }
+header .highlight{
+  color: var(--yellow);
+}
 header svg.shape{
-  position: fixed;
+  position: absolute;
+}
+header svg.shape:nth-of-type(1){
+  /* green cirlce */
+  top: 15%;
+  right: 20%;
+}
+header svg.shape:nth-of-type(5){
+    /* yellow rect */
+  top: 10%;
+  left: 20%;
+}
+header svg.shape:nth-of-type(3){
+    /* red triangle */
+  bottom: 35%;
+  right: 10%;
+}
+header svg.shape:nth-of-type(2){
+    /* yellow circle */
+  bottom: 10%;
+  left: 10%;
+}
+header svg.shape:nth-of-type(4){
+  /* blue rect */
+  bottom: 55%;
+  left: 12%;
 }
