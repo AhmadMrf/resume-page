@@ -95,12 +95,12 @@ main{
 }
 .top-navigation-menus{
   background-color: var(--white);
-  height: 3.5rem;
+  height: 4.5rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2.5rem;
   position: fixed;
   z-index: 1000;
 }
@@ -112,7 +112,7 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 6rem;
 }
 .main-menu-content{
   display: flex;
@@ -163,6 +163,7 @@ header h1{
 }
 header h1 span{
   display: block;
+  margin: 1rem;
 }
 header .highlight{
   color: var(--yellow);
