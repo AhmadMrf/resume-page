@@ -1,3 +1,32 @@
+
+/* ---- Variables ---- */
+:root {
+  --black: #2B2B2B;
+  --white: #FFFFFF;
+  --yellow: #ffb400;
+  --yellow2: #ffb40095;
+  --available: #7EB942;
+  --background: #F0F0F6;
+  --dark-background: #18191A;
+  --dark-view1: #242526;
+  --dark-view2: #3A3B3C;
+  --white-font: #FAFAFA;
+  --paragraph: #767676;
+  
+  --x-larg-1: normal 700 4.8rem inter, arial;
+  --x-larg-2: normal 700 3.2rem inter, arial;
+  --x-larg-3: normal 700 1.4rem inter, arial;
+  --larg-1: normal 600 2.4rem inter, arial;
+  --larg-2: normal 600 1.4rem inter, arial;
+  --medium-1: normal 500 1.8rem inter, arial;
+  --medium-2: normal 500 1.6rem inter, arial;
+  --medium-3: normal 500 1.4rem inter, arial;
+  --medium-4: normal 500 1.2rem inter, arial;
+  --small-1: normal 400 1.5rem inter, arial;
+  --small-2: normal 400 1.2rem inter, arial;
+  --small-3: normal 400 1.0rem inter, arial;
+}
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -13,6 +42,7 @@
 }
 html {
   font-size: 10px;
+  color: var(--black);
 }
 html, body {
   background-color: var(--background);
@@ -61,38 +91,17 @@ a {
   text-decoration: none;
 }
 
-/* ---- Variables ---- */
-:root {
-  --black: #2B2B2B;
-  --white: #FFFFFF;
-  --yellow: #ffb400;
-  --yellow2: #ffb40095;
-  --available: #7EB942;
-  --background: #F0F0F6;
-  --dark-background: #18191A;
-  --dark-view1: #242526;
-  --dark-view2: #3A3B3C;
-  --white-font: #FAFAFA;
-  --paragraph: #767676;
-  
-  --x-larg-1: normal 700 4.8rem inter, arial;
-  --x-larg-2: normal 700 3.2rem inter, arial;
-  --x-larg-3: normal 700 1.4rem inter, arial;
-  --larg-1: normal 600 2.4rem inter, arial;
-  --larg-2: normal 600 1.4rem inter, arial;
-  --medium-1: normal 500 1.8rem inter, arial;
-  --medium-2: normal 500 1.6rem inter, arial;
-  --medium-3: normal 500 1.4rem inter, arial;
-  --medium-4: normal 500 1.2rem inter, arial;
-  --small-1: normal 400 1.5rem inter, arial;
-  --small-2: normal 400 1.2rem inter, arial;
-  --small-3: normal 400 1.0rem inter, arial;
-}
+
+/* --- my styles --- */
+
 main{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   text-transform: capitalize;
 }
+
+
+
 .top-navigation-menus{
   background-color: var(--white);
   height: 4.5rem;
@@ -104,9 +113,15 @@ main{
   position: fixed;
   z-index: 1000;
 }
+
+
+
 .left-menu, .right-menu {
   display: none;
 }
+
+
+
 .main-menu{
   grid-column: span 12;
   display: flex;
@@ -114,6 +129,13 @@ main{
   align-items: center;
   padding-top: 6rem;
 }
+.main-menu p{
+  color: var(--paragraph);
+  line-height: 1.6;
+}
+
+
+
 .main-menu-content{
   display: flex;
   flex-direction: column;
@@ -126,6 +148,14 @@ main{
 .main-menu-content h3,
 .main-menu-content h4 {
   text-align: center;
+}
+.main-menu-content-title{
+  font: var(--larg-1);
+  color: var(--black);
+}
+.main-menu-content-subtitle{
+  font: var(--small-1);
+  margin: 1.5rem 0 2.5rem 0;
 }
 
 /* --- general styles --- */
@@ -196,3 +226,7 @@ header svg.shape:nth-of-type(4){
   bottom: 55%;
   left: 12%;
 }
+
+/* --- servises style --- */
+
+
