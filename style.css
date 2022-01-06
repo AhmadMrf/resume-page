@@ -279,7 +279,7 @@ header svg.shape:nth-of-type(4){
 }
 .plan-title{
   font: var(--larg-1);
-  margin: 3rem 0 .5rem ;
+  margin: 2.5rem 0 .5rem ;
 }
 .plan-price span:nth-child(1) {
   font: var(--x-larg-2);  
@@ -310,13 +310,21 @@ header svg.shape:nth-of-type(4){
   font: var(--x-larg-3);
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
 }
+.plans-popular{
+  position: relative;
+  padding-top: 4.5rem;
+}
 .plans-popular::before{
   content: "most popular";
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 4rem;
   background: var(--yellow);
-  margin: -2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .plans-popular button{
   background: var(--yellow);
