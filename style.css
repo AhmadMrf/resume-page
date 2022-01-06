@@ -49,7 +49,7 @@ html, body {
   height: 100%;
 }
 body {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-family: inter;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -233,18 +233,21 @@ header svg.shape:nth-of-type(4){
 .main-menu-content-wrapper{
   width: 100%;
 }
-.multirowgrid-boxes{
+.multi-colum-boxes{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
 }
-.my-services-box{
+.my-services-box,
+.plans-box{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 1.5rem;
   grid-column: 1/ -1 ;
   background: var(--white);
+}
+.my-services-box{
   padding: 3.5rem 2.5rem;
 }
 .my-services-box svg {
@@ -265,4 +268,23 @@ header svg.shape:nth-of-type(4){
   display: inline-block;
   content: url(./icons/s-arrow.svg);
   margin-left: .5rem;
+}
+
+/* --- price-plans styles --- */
+
+.plans-box{
+  /* styles in myservises */
+  padding: 2.5rem;
+  gap: 1rem;
+}
+.plan-title{
+  font: var(--larg-1);
+  margin: 3rem 0 .5rem ;
+}
+.plan-price span:nth-child(1) {
+  font: var(--x-larg-2);  
+}
+.plan-price span:nth-child(2) {
+  color: var(--paragraph);
+  margin-left: 1rem;
 }
