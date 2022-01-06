@@ -130,6 +130,7 @@ main{
   padding-top: 6rem;
 }
 .main-menu p{
+  font: var(--small-1);
   color: var(--paragraph);
   line-height: 1.6;
 }
@@ -229,4 +230,39 @@ header svg.shape:nth-of-type(4){
 
 /* --- servises style --- */
 
-
+.main-menu-content-wrapper{
+  width: 100%;
+}
+.multirowgrid-boxes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+.my-services-box{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1.5rem;
+  grid-column: 1/ -1 ;
+  background: var(--white);
+  padding: 3.5rem 2.5rem;
+}
+.my-services-box svg {
+  margin-top: 1rem;
+}
+.my-services-box h3{
+  margin-top: 1.5rem;
+  font: var(--medium-1);
+}
+.my-services-box h3.without-icon{
+  margin-bottom: 2rem;
+}
+.my-services-box .text-link{
+  font: var(--larg-2);
+  color: var(--yellow);
+}
+.my-services-box .text-link::after{
+  display: inline-block;
+  content: url(./icons/s-arrow.svg);
+  margin-left: .5rem;
+}
