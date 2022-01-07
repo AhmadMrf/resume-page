@@ -136,7 +136,6 @@ main{
 }
 
 
-
 .main-menu-content{
   display: flex;
   flex-direction: column;
@@ -239,7 +238,8 @@ header svg.shape:nth-of-type(4){
   gap: 1.6rem;
 }
 .my-services-box,
-.plans-box{
+.plans-box,
+.recommend-box{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -328,4 +328,43 @@ header svg.shape:nth-of-type(4){
 }
 .plans-popular button{
   background: var(--yellow);
+}
+
+/* --- recomendation styles --- */
+
+.one-row-boxes{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(65%, auto));
+  grid-auto-flow: column;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+.recommend-box{
+  /* some style above */
+  grid-column: inherit;
+  align-items: start;
+  padding: 2.5rem 1rem 2rem 2rem;
+}
+.recommend-rating-stars{
+  display: flex;
+  gap: .5rem;
+}
+.recommend-box h4{
+  font: var(--medium-1);
+}
+.recommend-box p{
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 6.8rem;
+  text-align: left;
+}
+.recomend-box-profile{
+  display: flex;
+  gap: 1.5rem;
+}
+.recomend-box-profile img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
