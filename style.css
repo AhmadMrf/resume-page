@@ -96,7 +96,7 @@ a {
 
 main{
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   text-transform: capitalize;
 }
 
@@ -334,7 +334,7 @@ header svg.shape:nth-of-type(4){
 
 .one-row-boxes{
   display: grid;
-  grid-template-columns: repeat(3, minmax(65%, auto));
+  grid-template-columns: repeat(3, minmax(22rem, auto));
   grid-auto-flow: column;
   gap: 1.5rem;
   overflow-x: auto;
