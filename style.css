@@ -362,6 +362,16 @@ header svg.shape:nth-of-type(4){
 .recomend-box-profile{
   display: flex;
   gap: 1.5rem;
+  max-width: 100%;
+}
+.recomend-box-profile div{
+  min-width: 0;
+}
+.recomend-box-profile div h4,
+.recomend-box-profile div p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .recomend-box-profile img{
   width: 5rem;
