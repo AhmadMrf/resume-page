@@ -129,6 +129,10 @@ main{
   align-items: center;
   padding-top: 6rem;
 }
+.main-menu h4{
+  font: var(--medium-1);
+  color: var(--black);
+}
 .main-menu p{
   font: var(--small-1);
   color: var(--paragraph);
@@ -391,3 +395,48 @@ header svg.shape:nth-of-type(4){
 .recommendations .dot-slider-wrapper span:hover{
   background-color: var(--yellow);
 }
+
+/* --- education & history styles --- */
+
+.multi-row-boxes{
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+.row-box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2.5rem;
+  background-color: var(--white);
+}
+.row-box h4{
+  margin: 1rem 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.row-box-title,
+.row-box-description{
+  max-width: 100%;
+}
+.row-box-title span{
+  margin-right: 1rem;
+  color: var(--paragraph);
+}
+.row-box-title span:nth-of-type(2){
+  color: var(--white);
+  font: var(--small-3);
+  padding: .5rem;
+  background-color: var(--yellow);
+}
+.row-box-description p{
+  overflow: auto;
+  max-height: 10.5rem;
+  text-align: left;
+  padding: 1rem 0;
+}
+
+
