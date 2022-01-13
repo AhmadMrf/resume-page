@@ -330,7 +330,7 @@ header svg.shape:nth-of-type(4){
   background: var(--yellow);
 }
 
-/* --- recomendation styles --- */
+/* --- recommendation styles --- */
 
 .one-row-boxes{
   display: grid;
@@ -351,29 +351,30 @@ header svg.shape:nth-of-type(4){
 }
 .recommend-box h4{
   font: var(--medium-1);
+  max-width: 100%;
 }
 .recommend-box p{
   text-overflow: ellipsis;
   word-wrap: break-word;
-  overflow: hidden;
+  overflow: auto;
   max-height: 6.8rem;
   text-align: left;
 }
-.recomend-box-profile{
+.recommend-box-profile{
   display: flex;
   gap: 1.5rem;
   max-width: 100%;
 }
-.recomend-box-profile div{
+.recommend-box-profile div{
   min-width: 0;
 }
-.recomend-box-profile div h4,
-.recomend-box-profile div p{
+.recommend-box h4, 
+.recommend-box-profile div p{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.recomend-box-profile img{
+.recommend-box-profile img{
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
