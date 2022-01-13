@@ -439,4 +439,13 @@ header svg.shape:nth-of-type(4){
   padding: 1rem 0;
 }
 
+/* --- Portfolio styles --- */
+
+.portfolio-filter{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.portfolio-filter li{
+    min-width: 5rem;
+}
 
