@@ -442,10 +442,17 @@ header svg.shape:nth-of-type(4){
 /* --- Portfolio styles --- */
 
 .portfolio-filter{
+  max-width: 100%;
+  overflow-x: auto;
   display: flex;
   flex-wrap: nowrap;
+  padding: .5rem 0;
+  padding-bottom: 1.2rem;
 }
 .portfolio-filter li{
-    min-width: 5rem;
+    white-space: nowrap;
+    margin-right: 1.5rem;
 }
-
+.portfolio-filter li.selected{
+  color: var(--yellow);
+}
