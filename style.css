@@ -237,8 +237,9 @@ header svg.shape:nth-of-type(4){
   width: 100%;
 }
 .multi-colum-boxes{
+  --n: 4;  /* (n-1) = maximum column */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(max(25rem, 100%/var(--n)), 1fr));
   gap: 1.6rem;
 }
 .my-services-box,
@@ -248,7 +249,6 @@ header svg.shape:nth-of-type(4){
   flex-flow: column nowrap;
   align-items: center;
   gap: 1.5rem;
-  grid-column: 1/ -1 ;
   background: var(--white);
 }
 .my-services-box{
