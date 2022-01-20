@@ -244,7 +244,8 @@ header svg.shape:nth-of-type(4){
 }
 .my-services-box,
 .plans-box,
-.recommend-box{
+.recommend-box,
+.portfolio-box{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -455,4 +456,7 @@ header svg.shape:nth-of-type(4){
 }
 .portfolio-filter li.selected{
   color: var(--yellow);
+}
+.portfolio-box{
+  background: none;
 }
