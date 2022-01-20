@@ -245,7 +245,8 @@ header svg.shape:nth-of-type(4){
 .my-services-box,
 .plans-box,
 .recommend-box,
-.portfolio-box{
+.portfolio-box,
+.blog-box{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -385,7 +386,7 @@ header svg.shape:nth-of-type(4){
   border-radius: 50%;
 }
 
-.recommendations .dot-slider-wrapper span{
+.dot-slider-wrapper span{
   display: inline-block;
   width: 1rem;
   height: 1rem;
@@ -393,7 +394,7 @@ header svg.shape:nth-of-type(4){
   margin: 2rem .7rem;
   background-color: var(--yellow2);
 }
-.recommendations .dot-slider-wrapper span:hover{
+.dot-slider-wrapper span:hover{
   background-color: var(--yellow);
 }
 
@@ -459,4 +460,34 @@ header svg.shape:nth-of-type(4){
 }
 .portfolio-box{
   background: none;
+}
+
+/* --- blog styles --- */
+
+.blog-box-content{
+  max-width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.blog-box-content > *{
+  max-width: 100%;
+}
+.blog-box-content h4,
+.blog-box-content p{
+  text-align: left;
+  overflow: auto;
+  padding: 1rem 0;
+  min-height: 6rem;
+  max-height: 10.5rem;  
+}
+.blog-box-content a{
+  font: var(--medium-3);
+  color: var(--yellow);
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 15rem;
 }
