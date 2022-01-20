@@ -339,7 +339,7 @@ header svg.shape:nth-of-type(4){
 
 .one-row-boxes{
   display: grid;
-  grid-template-columns: repeat(3, minmax(22rem, auto));
+  grid-template-columns: repeat(3, minmax(25rem, auto));
   grid-auto-flow: column;
   gap: 1.5rem;
   overflow-x: auto;
