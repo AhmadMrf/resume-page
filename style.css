@@ -166,7 +166,9 @@ main{
 
 .btn-rect-style{
   background: var(--yellow);
+  color: var(--black);
   border-radius: .5rem;
+  text-transform: uppercase;
 }
 
 /* --- header styles --- */
@@ -180,7 +182,6 @@ header p, header img{
   display: none;
 }
 header .btn-rect-style{
-  text-transform: uppercase;
   font: var(--medium-2);
   width: 17.5rem;
   height: 5.5rem;
@@ -515,4 +516,46 @@ header svg.shape:nth-of-type(4){
   white-space: nowrap;
   display: inline-block;
   min-width: 15rem;
+}
+
+/* --- contact form , information styles --- */
+
+.contact-form{
+  gap: 2.5rem;
+}
+.message-form,
+.contact-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.message-form h2,
+.contact-info h2{
+  font: var(--larg-1);
+  margin-bottom: 2rem;
+}
+.message-form form{
+  background: var(--white);
+  padding: 2.5rem;
+}
+.message-form label{
+  display: block;
+}
+.message-form-input{
+  min-height: 4rem;
+  min-width: 100%;
+  background: var(--background);
+  margin: .5rem 0 2.5rem;
+  padding: .5rem 1rem;
+  color: var(--paragraph);
+}
+.message-form textarea{
+  resize: vertical;
+  max-height: 20rem;
+}
+.message-form .btn-rect-style{
+  min-width: 15.5rem;
+  min-height: 3.5rem;
+  border-radius: 0;
+  font: var(--larg-2);
 }
