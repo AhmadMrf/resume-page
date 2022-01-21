@@ -463,7 +463,12 @@ header svg.shape:nth-of-type(4){
 }
 
 /* --- blog styles --- */
-
+.blog-box{
+  align-items: stretch;
+}
+.blog-box-image img{
+  min-width: 100%;
+}
 .blog-box-content{
   max-width: 100%;
   padding: 2rem;
