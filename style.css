@@ -460,7 +460,27 @@ header svg.shape:nth-of-type(4){
 }
 .portfolio-box{
   background: none;
+  position: relative;
 }
+.portfolio-box:hover:before {
+  content:"";
+  display: block;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: var(--yellow2);
+  top: 0;
+  left: 0;
+  opacity: .5;
+  }
+  .portfolio-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  }
+  .portfolio-box a img {
+  min-width: 100%;
+  }
 
 /* --- blog styles --- */
 .blog-box{
