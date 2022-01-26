@@ -528,6 +528,7 @@ header svg.shape:nth-of-type(4){
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 .message-form h2,
 .contact-info h2{
@@ -537,13 +538,14 @@ header svg.shape:nth-of-type(4){
 .message-form form{
   background: var(--white);
   padding: 2.5rem;
+  width: 100%;
 }
 .message-form label{
   display: block;
 }
 .message-form-input{
   min-height: 4rem;
-  min-width: 100%;
+  width: 100%;
   background: var(--background);
   margin: .5rem 0 2.5rem;
   padding: .5rem 1rem;
@@ -558,4 +560,22 @@ header svg.shape:nth-of-type(4){
   min-height: 3.5rem;
   border-radius: 0;
   font: var(--larg-2);
+}
+
+.contact-box{
+  background: var(--white);
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.contact-box span{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background: var(--yellow);
+  display: inline-block;
+  padding: 1.2rem;
 }
