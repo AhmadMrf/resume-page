@@ -579,3 +579,19 @@ header svg.shape:nth-of-type(4){
   display: inline-block;
   padding: 1.2rem;
 }
+.contact-box table tr{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .7rem 0;
+}
+.contact-box table tr td:first-child{
+  font: var(--medium-2);
+  padding-right: 1rem;
+  white-space: nowrap;
+}
+.contact-box table tr td:last-child{
+  min-width: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
