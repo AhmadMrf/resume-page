@@ -98,6 +98,8 @@ main{
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   text-transform: capitalize;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 
@@ -240,7 +242,7 @@ header svg.shape:nth-of-type(4){
 .multi-colum-boxes{
   --n: 4;  /* (n-1) = maximum column */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(25rem, 100%/var(--n)), 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(max(25rem, 100%/var(--n)), 1fr)); */
   gap: 1.6rem;
 }
 .my-services-box,
@@ -341,7 +343,7 @@ header svg.shape:nth-of-type(4){
 
 .one-row-boxes{
   display: grid;
-  grid-template-columns: repeat(3, minmax(25rem, auto));
+  grid-template-columns: repeat(3, minmax(22.5rem, auto));
   grid-auto-flow: column;
   gap: 1.5rem;
   overflow-x: auto;
@@ -529,6 +531,7 @@ header svg.shape:nth-of-type(4){
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  height: 100%;
 }
 .message-form h2,
 .contact-info h2{
@@ -539,9 +542,10 @@ header svg.shape:nth-of-type(4){
   background: var(--white);
   padding: 2.5rem;
   width: 100%;
-}
-.message-form label{
-  display: block;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .message-form-input{
   min-height: 4rem;
@@ -553,7 +557,8 @@ header svg.shape:nth-of-type(4){
 }
 .message-form textarea{
   resize: vertical;
-  max-height: 20rem;
+  flex: 1;
+  min-height: 13rem;
 }
 .message-form .btn-rect-style{
   min-width: 15.5rem;
@@ -569,6 +574,9 @@ header svg.shape:nth-of-type(4){
   margin-bottom: 2.5rem;
   padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   text-align: center;
+}
+.contact-box:last-child {
+  margin-bottom: 0;
 }
 .contact-box span{
   width: 4rem;
@@ -629,3 +637,53 @@ header svg.shape:nth-of-type(4){
   background: var(--white);
   font: var(--small-1);
 }
+
+
+/* --- landscape mobile --- */
+
+@media only screen and (min-width: 576px){
+  .multi-colum-boxes{
+    grid-template-columns: repeat(2, minmax(0 , 1fr));
+  }
+}
+
+/* ---  tablet --- */
+
+@media only screen and (min-width: 768px){
+  header p{
+    display: block;
+    font: var(--medium-2);
+    padding: 0 5rem 3rem 5rem;
+  }
+  .multi-colum-boxes{
+    grid-template-columns: repeat(3, minmax(0 , 1fr));
+  }
+  .contact-form{
+    flex-direction: row;
+  }
+  .contact-info{
+    flex: 0 0 35%;
+  }
+}
+
+/* ---  desktop --- */
+
+@media only screen and (min-width: 992px){
+  .left-menu, .right-menu {
+    display: block;
+  }
+  .top-navigation-menus {
+    display: none;
+  }
+  .right-menu {
+    grid-column: 12 / 13;
+  }
+  .left-menu {
+   grid-column: 1 / 3;
+  }
+  .main-menu {
+    padding-top: 0;
+    grid-column: 3 / 12;
+    grid-row-start: 1;
+  }
+ }
