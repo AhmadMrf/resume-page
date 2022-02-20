@@ -118,12 +118,14 @@ main{
   transform: translateY(0);
 }
 
+/* --- side styles --- */
 
 
 .left-menu, .right-menu {
   display: none;
 }
 
+/* --- main menu styles --- */
 
 
 .main-menu{
@@ -132,7 +134,6 @@ main{
   flex-direction: column;
   align-items: center;
   padding-top: 6rem;
-  /* transition: all .3s; */
 }
 .main-menu h4{
   font: var(--medium-1);
@@ -151,7 +152,7 @@ main{
   align-items: center;
   width: 92%;
   margin-bottom: 5rem;
-  /* transition: width .3s; */
+  transition: width .3s;
 }
 .main-menu-content h2,
 .main-menu-content p,
@@ -184,7 +185,12 @@ header.main-menu-content{
   padding: 6rem;
   background-color: var(--white);
 }
-header p, header img{
+.header-content{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+header p, .header-img-wrapper{
   display: none;
 }
 header .btn-rect-style{
@@ -204,10 +210,11 @@ header h1{
 }
 header h1 span{
   display: block;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 header .highlight{
   color: var(--yellow);
+  white-space: nowrap;
 }
 header svg.shape{
   position: absolute;
@@ -357,6 +364,7 @@ header svg.shape:nth-of-type(4){
   grid-column: inherit;
   align-items: start;
   padding: 2.5rem 1rem 2rem 2rem;
+  gap: 2rem;
 }
 .recommend-rating-stars{
   display: flex;
@@ -560,7 +568,7 @@ header svg.shape:nth-of-type(4){
   color: var(--paragraph);
 }
 .message-form textarea{
-  resize: vertical;
+  resize: none;
   flex: 1;
   min-height: 13rem;
 }
@@ -654,6 +662,9 @@ header svg.shape:nth-of-type(4){
 /* ---  tablet --- */
 
 @media only screen and (min-width: 768px){
+  .header-content h1{
+    font: var(--x-larg-1);
+  }
   header p{
     display: block;
     font: var(--medium-2);
@@ -690,6 +701,49 @@ header svg.shape:nth-of-type(4){
     grid-column: 3 / 12;
     grid-row-start: 1;
   }
+  header.main-menu-content{
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .header-content{
+    align-items: flex-start;
+  }
+  .header-content h1{
+    text-align: left;
+  }
+  .header-content h1 span{
+    display: inline;
+  }
+  .header-content p{
+    padding-left: 0;
+    text-align: left;
+  }
+  .header-img-wrapper{
+    display: initial;
+    flex: 1 0 40%;
+  }
+  .header-img-wrapper img{
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+  }
+  header svg.shape:nth-of-type(1) {
+    right: 8%;
+    }
+  header svg.shape:nth-of-type(2) {
+    bottom: 5%;
+    }
+  header svg.shape:nth-of-type(3) {
+    bottom: 55%;
+    right: 5%;
+    }
+  header svg.shape:nth-of-type(4) {
+    bottom: 16%;
+    left: 47%;
+    }
+  header svg.shape:nth-of-type(5) {
+    top: 6%;
+    }
   .main-menu-content{
     width: 96%;
   }
