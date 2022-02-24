@@ -66,6 +66,7 @@ table, thead, tbody, tfoot, tr, th, td {
   border-color: inherit;
   vertical-align: inherit;
   text-align: left;
+  font: inherit;
   font-weight: inherit;
   -webkit-border-horizontal-spacing: 0;
   -webkit-border-vertical-spacing: 0;
@@ -85,6 +86,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 ol, ul {
   list-style: none;
+  font: inherit;
 }
 a {
   color: inherit;
@@ -98,7 +100,7 @@ main{
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   text-transform: capitalize;
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -123,8 +125,126 @@ main{
 
 .left-menu, .right-menu {
   display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: var(--white);
 }
 
+/* --- side- left menu styles --- */
+
+.left-menu-content{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90%;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--background);
+}
+.profile .left-menu-pic-wrapper{
+  max-width: 15rem;
+  position: relative;
+  padding: 2.5rem 0;
+}
+.profile .left-menu-pic-wrapper img{
+  border-radius: 50%;
+}
+.profile .left-menu-pic-wrapper span{
+  position: absolute;
+  bottom: 4.5rem;
+  right: 1rem;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--available);
+}
+.profile h1{
+  font: var(--medium-1);
+}
+.profile p{
+  font: var(--small-1);
+  color: var(--paragraph);
+  padding: 1.5rem 0;
+}
+.profile .left-menu-social{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.profile .left-menu-social a{
+  background-color: var(--yellow);
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about table{
+  width: 100%;
+}
+.about tr{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.about tr td:first-child{
+  background-color: var(--yellow);
+  padding: .2rem .5rem .2rem .2rem;
+  flex: 0 0 min-content;
+}
+.about .availebel{
+  color: var(--available);
+}
+
+.skills{
+  align-items: flex-start;
+}
+.skills p{
+  font: var(--medium-1);
+  margin-bottom: 1rem;
+}
+.skills ul{
+  width: 100%;
+}
+.skills ul li{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font: var(--small-1);
+  color: var(--paragraph);
+  margin: 1rem 0;
+}
+.skills .progress-bar-border{
+  width: 100%;
+  height: .5rem;
+  border-radius: 30px;
+  padding: .8px;
+  margin-top: .3rem;
+  border: 1px solid var(--yellow);
+}
+.skills .progress-bar-percent{
+  width: 60%;
+  background-color: var(--yellow);
+  height: 100%;
+}
+.skills .extra-skills li{
+  display: list-item;
+  list-style: inside url("icons/skills-icon.svg");
+}
+
+.button .btn-rect-style{
+  width: 100%;
+  font: var(--larg-2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+}
 /* --- main menu styles --- */
 
 
@@ -685,7 +805,7 @@ header svg.shape:nth-of-type(4){
 
 @media only screen and (min-width: 992px){
   .left-menu, .right-menu {
-    display: block;
+    display: flex;
   }
   .top-navigation-menus {
     transform: translateY(-105%);
@@ -735,7 +855,7 @@ header svg.shape:nth-of-type(4){
     }
   header svg.shape:nth-of-type(3) {
     bottom: 55%;
-    right: 5%;
+    right: 45%;
     }
   header svg.shape:nth-of-type(4) {
     bottom: 16%;
