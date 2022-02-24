@@ -171,6 +171,9 @@ main{
   display: flex;
   justify-content: space-around;
 }
+.profile .left-menu-social li:last-child{
+  display: none;
+}
 .profile .left-menu-social a{
   background-color: var(--yellow);
   width: 2.3rem;
@@ -195,7 +198,13 @@ main{
 .about tr td:first-child{
   background-color: var(--yellow);
   padding: .2rem .5rem .2rem .2rem;
-  flex: 0 0 min-content;
+}
+.about .about-address{
+  justify-content: center;
+}
+.about .about-address td:first-child{
+  flex: 1;
+  text-align: center;
 }
 .about .availebel{
   color: var(--available);
@@ -868,3 +877,19 @@ header svg.shape:nth-of-type(4){
     width: 96%;
   }
  }
+
+ /* ---  wide desktop --- */
+
+
+@media only screen and (min-width: 1200px){
+   .profile .left-menu-social li:last-child{
+    display: flex;
+  }
+  .about .about-address{
+    justify-content: space-between;
+  }
+  .about .about-address td:first-child{
+    flex: 0;
+  }
+
+}
