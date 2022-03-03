@@ -137,6 +137,7 @@ main{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  padding-top: 3rem;
   background-color: var(--white);
   height: 100vh;
   overflow-y: auto;
