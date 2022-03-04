@@ -327,7 +327,7 @@ main{
   background-color: var(--black);
   border-radius: 2px;
   padding: .5rem 1rem;
-  top: -60%;
+  top: -5rem;
   transition: all .3s;
 }
 
@@ -349,7 +349,7 @@ main{
 .toggle-theme:hover span{
   visibility: visible;
   opacity: 1;
-  top: -75%;
+  top: -3rem;
 }
 .right-menu-navbar li:hover svg path{
   fill: var(--black);
