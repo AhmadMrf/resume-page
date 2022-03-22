@@ -84,3 +84,26 @@ leftMenuButton.addEventListener('click', (e) => {
 	})
 })
 
+// portfolio dialog toggle and content
+
+const portfolioDialog = document.querySelector('#portfolio-dialog')
+const portfolioDialogContent = portfolioDialog.querySelector('img')
+const dialogClose = portfolioDialog.querySelector('#dialog-close')
+const portfolioBox = document.querySelector('#portfolio-boxes')
+portfolioBox.addEventListener('click', e => {
+	if(e.target.tagName === 'DIV'){
+		portfolioContent(e.target)
+		portfolioDialog.classList.add('dialog-open')
+	}
+})
+dialogClose.addEventListener('click', () => {
+	portfolioDialog.classList.remove('dialog-open')
+})
+let src, alt ;
+
+portfolioContent = function(box) {
+	src = box.firstElementChild.firstElementChild.getAttribute('src')
+	alt = box.firstElementChild.firstElementChild.getAttribute('alt')
+	portfolioDialogContent.setAttribute('src', src)
+	portfolioDialogContent.setAttribute('alt', alt)
+}
