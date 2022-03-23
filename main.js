@@ -1,10 +1,19 @@
-// toggle side menus
-
 const topNavigation = document.querySelector('.top-navigation-menus')
 const sideIconMenus = document.querySelectorAll('.top-navigation-menus span')
 const leftMenu = document.querySelector('.left-menu')
 const rightMenu = document.querySelector('.right-menu')
+let progressBars = leftMenu.querySelectorAll('#progress-bar .progress-bar')
+const portfolioFilters = document.querySelector('#portfolio-filter')
+let portfolioFiltersElement = portfolioFilters.querySelectorAll('#portfolio-filter li')
+const portfolioBoxes = document.querySelectorAll('#portfolio-boxes div')
+const leftMenuButton = leftMenu.querySelector('button')
+const portfolioDialog = document.querySelector('#portfolio-dialog')
+const portfolioDialogContent = portfolioDialog.querySelector('img')
+const dialogClose = portfolioDialog.querySelector('#dialog-close')
+const portfolioBox = document.querySelector('#portfolio-boxes')
+const loadMore = document.querySelector('#morePortfolio')
 
+// toggle side menus
 
 sideIconMenus.forEach(icon => {
 	icon.addEventListener('click', e => {
@@ -33,7 +42,6 @@ addEventListener('click', e => {
 
 // progress bar left menu
 
-let progressBars = leftMenu.querySelectorAll('#progress-bar .progress-bar')
 progressBars.forEach(item => {
 	let progress = item.dataset.progress
 	let progressTitle = item.previousElementSibling
@@ -50,18 +58,20 @@ progressBars.forEach(item => {
 
 // portfolio filter
 
-const portfolioFilters = document.querySelector('#portfolio-filter')
-let portfolioFiltersElement = portfolioFilters.querySelectorAll('#portfolio-filter li')
-const portfolioBoxes = document.querySelectorAll('#portfolio-boxes div')
-
+let filter = 'A'
 portfolioFilters.addEventListener('click', (e) => {
-	if (e.target.tagName === "LI") {
+	if(e.target.tagName === 'LI'){
 		portfolioFiltersElement.forEach(item => item.classList.remove('selected'))
 		e.target.classList.add('selected')
+		
+		filter = e.target.textContent[0]
+		portfolioFilter(filter)
+	}
+})
 
-		let filter = e.target.textContent[0]
-
-		portfolioBoxes.forEach(item => {
+function portfolioFilter(filter){
+	
+		portfolioBox.querySelectorAll('div').forEach(item => {
 			item.classList.remove('filter')
 			if (filter === 'A') {
 				item.classList.remove('filter')
@@ -70,12 +80,9 @@ portfolioFilters.addEventListener('click', (e) => {
 				item.classList.toggle('filter')
 			}
 		})
-	}
-})
+}
 
 //button icon animation
-
-const leftMenuButton = leftMenu.querySelector('button')
 
 leftMenuButton.addEventListener('click', (e) => {
 	e.currentTarget.classList.add('clicked')
@@ -86,10 +93,7 @@ leftMenuButton.addEventListener('click', (e) => {
 
 // portfolio dialog toggle and content
 
-const portfolioDialog = document.querySelector('#portfolio-dialog')
-const portfolioDialogContent = portfolioDialog.querySelector('img')
-const dialogClose = portfolioDialog.querySelector('#dialog-close')
-const portfolioBox = document.querySelector('#portfolio-boxes')
+
 portfolioBox.addEventListener('click', e => {
 	if(e.target.tagName === 'DIV'){
 		portfolioContent(e.target)
@@ -107,3 +111,39 @@ portfolioContent = function(box) {
 	portfolioDialogContent.setAttribute('src', src)
 	portfolioDialogContent.setAttribute('alt', alt)
 }
+
+
+//  load more portfolios
+
+ let portfolios
+fetch('./portfolios.txt')
+.then(Response => Response.json())
+.then(data => {
+	
+	portfolios = data.morePortfolio
+	let startUseLoadMore = 0
+	let endUseLoadMore = 3
+	let stepLoadMore
+	let portfolio
+loadMore.addEventListener('click',() => {
+	filter = portfolioFilters.querySelector('.selected').textContent[0]
+	loadMorePortfolio()
+portfolioFilter(filter)
+})
+  function loadMorePortfolio(){
+  	stepLoadMore = portfolios.slice(startUseLoadMore, endUseLoadMore)
+  	stepLoadMore.forEach(item => {
+  		portfolio = document.createElement('div')
+  		portfolio.setAttribute('data-category', item.category)
+  		portfolio.setAttribute('class','portfolio-box')
+  		portfolio.innerHTML = `<a href="${item.href}"><img src="${item.image}" alt="${item.title}"></a>`
+  		portfolioBox.appendChild(portfolio)
+  	})
+  	if (portfolios.length < endUseLoadMore) {
+  		loadMore.remove()
+  	}
+startUseLoadMore += 3
+endUseLoadMore += 3
+
+}
+})

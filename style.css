@@ -193,6 +193,7 @@ button,
 .recommend-box h4,
 .row-box h4,
 .portfolio-filter li,
+#morePortfolio,
 .portfolio-box,
 .blog-box-content h4,
 input[type=submit],
@@ -218,7 +219,6 @@ input[type=submit],
 	z-index: 999;
 	transition: all 0.3s;
 }
-
 /* --- side- left menu styles --- */
 
 .left-menu {
@@ -474,7 +474,7 @@ input[type=submit],
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 98%;
+	width: 95%;
 	margin-bottom: 5rem;
 	transition: width .3s;
 }
@@ -834,7 +834,7 @@ header svg.shape:nth-of-type(4) {
 /* --- Portfolio styles --- */
 #portfolio-dialog{
 	visibility: hidden;
-	opacity: 0;
+	opacity: .1;
 	width: 90vw;
 	height: 50vh;
 	background-color: var(--background);
@@ -847,7 +847,7 @@ header svg.shape:nth-of-type(4) {
 #portfolio-dialog.dialog-open{
 	visibility: visible;
 	opacity: 1;
-	transform: scale(1)
+	transform: scale(1);
 }
 #portfolio-dialog.dialog-open img{
   width: 100%;
@@ -855,11 +855,12 @@ header svg.shape:nth-of-type(4) {
   object-fit: cover;
 }
 #dialog-close{
-	width: 20px;
-	height: 20px;
+	width: 5%;
+	height: 5%;
 	background-image: url(./icons/multip.svg);
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 100%;
 	position: absolute;
 	right: 15px;
 	top: 15px;
@@ -874,6 +875,7 @@ header svg.shape:nth-of-type(4) {
 	flex-wrap: nowrap;
 	padding: .5rem 0;
 	padding-bottom: 1.2rem;
+	margin-bottom: 2rem;
 }
 
 .portfolio-filter li {
@@ -915,7 +917,12 @@ header svg.shape:nth-of-type(4) {
 .portfolio-box a img {
 	min-width: 100%;
 }
-
+#morePortfolio {
+	font: var(--medium-2);
+	color: var(--yellow);
+	margin-top: 2.5rem; 
+	padding: 1rem;
+}
 /* --- blog styles --- */
 .blog-box {
 	align-items: stretch;
