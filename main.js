@@ -147,3 +147,17 @@ endUseLoadMore += 3
 
 }
 })
+
+// toggle dark mode
+const toggleTheme = rightMenu.querySelector('.toggle-theme')
+let isDark = false
+toggleTheme.addEventListener('click', () => {
+	if(!isDark){
+	document.documentElement.style.cssText = '	--color1:#242526;--background:#18191a;--color2: #ffffff;'
+	  isDark = true
+	}else{
+	document.documentElement.style.cssText = ''
+		isDark= false
+	}
+	
+})
