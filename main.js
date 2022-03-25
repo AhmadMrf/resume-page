@@ -13,6 +13,39 @@ const dialogClose = portfolioDialog.querySelector('#dialog-close')
 const portfolioBox = document.querySelector('#portfolio-boxes')
 const loadMore = document.querySelector('#morePortfolio')
 
+// toggle dark mode
+
+const toggleThemeIcon = rightMenu.querySelector('.toggle-theme')
+const toggleThemeTitle =toggleThemeIcon.querySelector('span')
+let isDark
+addEventListener('load', () => {
+if(!localStorage.getItem('isDark')){
+	localStorage.setItem('isDark', JSON.stringify(false));
+}else{
+toggleTheme(1)
+}
+})
+toggleThemeIcon.addEventListener('click', () => {
+	
+	toggleTheme(0)
+})
+
+function toggleTheme(reverse){
+	isDark = JSON.parse(localStorage.getItem('isDark'))
+	isDark = reverse ? !isDark : isDark;
+	if (!isDark) {
+		document.documentElement.style.cssText = '	--color1:#242526;--background:#18191a;--color2: #ffffff;';
+		toggleThemeTitle.textContent = 'Light'
+		isDark = true
+		localStorage.setItem('isDark', JSON.stringify(isDark))
+	} else {
+		document.documentElement.style.cssText = '';
+		toggleThemeTitle.textContent = 'Dark'
+		isDark = false
+		localStorage.setItem('isDark', JSON.stringify(isDark))
+	}
+}
+
 // toggle side menus
 
 sideIconMenus.forEach(icon => {
@@ -148,16 +181,3 @@ endUseLoadMore += 3
 }
 })
 
-// toggle dark mode
-const toggleTheme = rightMenu.querySelector('.toggle-theme')
-let isDark = false
-toggleTheme.addEventListener('click', () => {
-	if(!isDark){
-	document.documentElement.style.cssText = '	--color1:#242526;--background:#18191a;--color2: #ffffff;'
-	  isDark = true
-	}else{
-	document.documentElement.style.cssText = ''
-		isDark= false
-	}
-	
-})
