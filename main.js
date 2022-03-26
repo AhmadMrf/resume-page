@@ -12,13 +12,15 @@ const portfolioDialogContent = portfolioDialog.querySelector('img')
 const dialogClose = portfolioDialog.querySelector('#dialog-close')
 const portfolioBox = document.querySelector('#portfolio-boxes')
 const loadMore = document.querySelector('#morePortfolio')
-
-// toggle dark mode
-
 const toggleThemeIcon = rightMenu.querySelector('.toggle-theme')
 const toggleThemeTitle =toggleThemeIcon.querySelector('span')
+
+//## toggle dark mode ##
+
+
 let isDark
 addEventListener('load', () => {
+	// check localstorage for existing
 if(!localStorage.getItem('isDark')){
 	localStorage.setItem('isDark', JSON.stringify(false));
 }else{
@@ -31,8 +33,11 @@ toggleThemeIcon.addEventListener('click', () => {
 })
 
 function toggleTheme(reverse){
+	// when onload i need to aplly theme according to isDark value witout chenge it by toogleTheme func. by 'reverse' parameter i do it. 
 	isDark = JSON.parse(localStorage.getItem('isDark'))
+	// reverse isDark value for onload listener.
 	isDark = reverse ? !isDark : isDark;
+
 	if (!isDark) {
 		document.documentElement.style.cssText = '	--color1:#242526;--background:#18191a;--color2: #ffffff;';
 		toggleThemeTitle.textContent = 'Light'
@@ -46,7 +51,7 @@ function toggleTheme(reverse){
 	}
 }
 
-// toggle side menus
+// ## toggle side menus ##
 
 sideIconMenus.forEach(icon => {
 	icon.addEventListener('click', e => {
@@ -54,13 +59,15 @@ sideIconMenus.forEach(icon => {
 		let clickedIcon = e.currentTarget.parentElement.className.includes('left') ? 'left' : 'right';
 		document.querySelector(`.${clickedIcon}-menu`).classList.toggle('active')
 
+    // toggle left menu icon
 		if (clickedIcon === 'left') {
 			icon.classList.toggle('active')
 		}
 	})
 })
 
-
+  // when click outside menus and top navigation , close menus
+  
 addEventListener('click', e => {
 	if (e.target.closest('.top-navigation-menus') !== topNavigation) {
 		if (e.target.closest('.left-menu') !== leftMenu) {
@@ -73,7 +80,7 @@ addEventListener('click', e => {
 	}
 })
 
-// progress bar left menu
+// ## progress bar left menu ##
 
 progressBars.forEach(item => {
 	let progress = item.dataset.progress
@@ -89,14 +96,25 @@ progressBars.forEach(item => {
 	}, 15)
 })
 
-// portfolio filter
+// ## left menu button icon animation ##
 
+leftMenuButton.addEventListener('click', (e) => {
+	e.currentTarget.classList.add('clicked')
+	e.currentTarget.addEventListener('animationend',(e) => {
+		e.currentTarget.classList.remove('clicked')
+	})
+})
+
+// ## portfolio filter ##
+
+  // defult filter for all category
 let filter = 'A'
 portfolioFilters.addEventListener('click', (e) => {
 	if(e.target.tagName === 'LI'){
+		// highlight selected li
 		portfolioFiltersElement.forEach(item => item.classList.remove('selected'))
 		e.target.classList.add('selected')
-		
+		// choose first leter of list filter element for filtering
 		filter = e.target.textContent[0]
 		portfolioFilter(filter)
 	}
@@ -109,35 +127,29 @@ function portfolioFilter(filter){
 			if (filter === 'A') {
 				item.classList.remove('filter')
 			}
+			// use first element dataset on element for search
 			else if (item.dataset.category[0] !== filter) {
 				item.classList.toggle('filter')
 			}
 		})
 }
 
-//button icon animation
 
-leftMenuButton.addEventListener('click', (e) => {
-	e.currentTarget.classList.add('clicked')
-	e.currentTarget.addEventListener('animationend',(e) => {
-		e.currentTarget.classList.remove('clicked')
-	})
-})
-
-// portfolio dialog toggle and content
+// ## portfolio dialog toggle and content ##
 
 
 portfolioBox.addEventListener('click', e => {
 	if(e.target.tagName === 'DIV'){
 		portfolioContent(e.target)
 		portfolioDialog.classList.add('dialog-open')
-	}
+	 }
 })
 dialogClose.addEventListener('click', () => {
 	portfolioDialog.classList.remove('dialog-open')
 })
+  // get element atribute for dialog
 let src, alt ;
-
+  
 portfolioContent = function(box) {
 	src = box.firstElementChild.firstElementChild.getAttribute('src')
 	alt = box.firstElementChild.firstElementChild.getAttribute('alt')
@@ -146,7 +158,7 @@ portfolioContent = function(box) {
 }
 
 
-//  load more portfolios
+//  ## load more portfolios ##
 
  let portfolios
 fetch('./portfolios.txt')
@@ -159,10 +171,13 @@ fetch('./portfolios.txt')
 	let stepLoadMore
 	let portfolio
 loadMore.addEventListener('click',() => {
-	filter = portfolioFilters.querySelector('.selected').textContent[0]
+	//filter added portfolios
+	filter = portfolioFilters.querySelector('.selected').textContent[0];
 	loadMorePortfolio()
 portfolioFilter(filter)
 })
+
+  //seprate extra portfolios array 3 to 3 for each time. and create elements base on that array.
   function loadMorePortfolio(){
   	stepLoadMore = portfolios.slice(startUseLoadMore, endUseLoadMore)
   	stepLoadMore.forEach(item => {
