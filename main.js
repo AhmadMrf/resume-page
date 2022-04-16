@@ -2,6 +2,8 @@ const topNavigation = document.querySelector('.top-navigation-menus')
 const sideIconMenus = document.querySelectorAll('.top-navigation-menus span')
 const leftMenu = document.querySelector('.left-menu')
 const rightMenu = document.querySelector('.right-menu')
+const rightMenuNavbarIcons = document.querySelectorAll('.right-menu-navbar li')
+const sections = document.querySelectorAll('.main-menu-content')
 let progressBars = leftMenu.querySelectorAll('#progress-bar .progress-bar')
 const portfolioFilters = document.querySelector('#portfolio-filter')
 let portfolioFiltersElement = portfolioFilters.querySelectorAll('#portfolio-filter li')
@@ -196,3 +198,21 @@ endUseLoadMore += 3
 }
 })
 
+//  ## scroll behavior ##
+//highlight icon function
+function hghlightIcon(id){
+
+}
+//click icons to scroll body
+let iconName
+let sectionOffset
+rightMenuNavbarIcons.forEach(icon => {
+	icon.addEventListener('click', () => {
+		iconName = icon.dataset.name
+		sectionOffset = document.getElementById(iconName).getBoundingClientRect().y
+		document.body.scrollBy(0, sectionOffset - 50)
+
+		// console.log(sectionOffset);
+	})
+})
+//scroll to highlight icons
