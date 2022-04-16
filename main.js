@@ -201,7 +201,12 @@ endUseLoadMore += 3
 //  ## scroll behavior ##
 //highlight icon function
 function hghlightIcon(id){
-
+	rightMenuNavbarIcons.forEach(icon => {
+		icon.classList.remove('active')
+		if(icon.dataset.name === id){
+			icon.classList.add('active')
+		}
+	})
 }
 //click icons to scroll body
 let iconName
@@ -211,8 +216,15 @@ rightMenuNavbarIcons.forEach(icon => {
 		iconName = icon.dataset.name
 		sectionOffset = document.getElementById(iconName).getBoundingClientRect().y
 		document.body.scrollBy(0, sectionOffset - 50)
-
-		// console.log(sectionOffset);
 	})
 })
 //scroll to highlight icons
+let arraySections = Array.from(sections)
+document.body.addEventListener('scroll', () => {
+	let sectionInView = arraySections.findIndex(section => {
+		return (section.getBoundingClientRect().y) - 50 > 1
+	})
+	let sectionInViewId = sections[sectionInView - 1].id
+	hghlightIcon(sectionInViewId)
+
+})

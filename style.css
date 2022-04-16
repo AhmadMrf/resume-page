@@ -16,7 +16,7 @@
 	--background: #F0F0F6;
 
 	--yellow: #ffb400;
-	--yellow2: #ffb40095;
+	--yellow2: #ffc7456f;
 	--available: #7EB942;
 	--white-font: #FAFAFA;
 	--paragraph: #767676;
@@ -151,7 +151,7 @@ main {
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	text-transform: capitalize;
-	max-width: 1600px;
+	max-width: 1264px;
 	margin: 0 auto;
 }
 
@@ -467,7 +467,9 @@ input[type=submit],
 	transition: all .3s;
 }
 
-.right-menu-navbar li:hover,
+.right-menu-navbar li:hover{
+	background-color: var(--yellow2);
+}
 .right-menu-navbar li.active{
 	background-color: var(--yellow);
 }
