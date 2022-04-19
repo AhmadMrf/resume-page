@@ -388,7 +388,7 @@ input[type=submit],
 	list-style: inside url("icons/skills-icon.svg");
 }
 
-.button .btn-rect-style {
+.left-menu-button .btn-rect-style {
 	width: 100%;
 	font: var(--larg-2);
 	display: flex;
