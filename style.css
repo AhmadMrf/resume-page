@@ -315,6 +315,9 @@ input[type=submit],
 .left-menu-social svg{
 	fill: var(--color2)
 }
+.left-menu-social svg#codepen-svg path{
+	stroke: var(--color2)
+}
 .about table {
 	width: 100%;
 }
