@@ -315,6 +315,9 @@ input[type=submit],
 .left-menu-social svg{
 	fill: var(--color2)
 }
+.left-menu-social svg#codepen-svg path{
+	stroke: var(--color2)
+}
 .about table {
 	width: 100%;
 }
@@ -388,7 +391,7 @@ input[type=submit],
 	list-style: inside url("icons/skills-icon.svg");
 }
 
-.button .btn-rect-style {
+.left-menu-button .btn-rect-style {
 	width: 100%;
 	font: var(--larg-2);
 	display: flex;
