@@ -238,3 +238,21 @@ function getInViewSection(){
 	})
 	return sectionInViewId = sections[sectionInView - 1].id
 }
+
+// scroll to top
+
+const goToTopBtn =  document.querySelector('.go-to-top')
+let myServisesSection = sections[1]
+document.body.addEventListener('scroll', ()=>{
+	if(document.body.scrollTop > sections[1].offsetTop ){
+		goToTopBtn.classList.add('active')
+	}else{
+		goToTopBtn.classList.remove('active')
+	}
+})
+goToTopBtn.addEventListener('click', () => {
+	document.body.scroll({
+		top:0,
+		behavior:"smooth"
+	})
+})
