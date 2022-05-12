@@ -237,6 +237,26 @@ input[type=submit],
 	top: 0;
 	z-index: 1;
 	transition: all 0.3s;
+
+	scrollbar-width: thin;
+	scrollbar-color: var(--background) var(--color1);
+	scrollbar-gutter: stable;
+}
+
+
+.left-menu::-webkit-scrollbar,
+.right-menu::-webkit-scrollbar{
+	width: 8px;
+}
+.left-menu::-webkit-scrollbar-track,
+.right-menu::-webkit-scrollbar-track{
+	background: var(--color1);
+}
+.left-menu::-webkit-scrollbar-thumb,
+.right-menu::-webkit-scrollbar-thumb{
+	box-sizing: border-box;
+	border:2px solid transparent;
+  background: var(--background) content-box;
 }
 
 .left-menu:hover,
