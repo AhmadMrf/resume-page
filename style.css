@@ -237,6 +237,26 @@ input[type=submit],
 	top: 0;
 	z-index: 1;
 	transition: all 0.3s;
+
+	scrollbar-width: thin;
+	scrollbar-color: var(--background) var(--color1);
+	scrollbar-gutter: stable;
+}
+
+
+.left-menu::-webkit-scrollbar,
+.right-menu::-webkit-scrollbar{
+	width: 8px;
+}
+.left-menu::-webkit-scrollbar-track,
+.right-menu::-webkit-scrollbar-track{
+	background: var(--color1);
+}
+.left-menu::-webkit-scrollbar-thumb,
+.right-menu::-webkit-scrollbar-thumb{
+	box-sizing: border-box;
+	border:2px solid transparent;
+  background: var(--background) content-box;
 }
 
 .left-menu:hover,
@@ -422,7 +442,7 @@ input[type=submit],
 
 .right-menu.active {
 	justify-self: end;
-	min-width: 8.5rem;
+	min-width: 10rem;
 	transform: translateX(0);
 	padding-top: 3rem;
 	box-shadow: -2px 0 15px var(--background);
@@ -1146,7 +1166,34 @@ header svg.shape:nth-of-type(4) {
 	background: var(--color1);
 	font: var(--small-1);
 }
+.go-to-top{
+	opacity: 0;
+	visibility: hidden;
+}
+.go-to-top.active{
+	opacity: .6;
+	visibility: visible;
+	width : 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background-color: var(--color2);
+	position: fixed;
+	bottom: calc(1vh + 3rem);
+	right: calc(2vw + 3rem);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: ease .3s opacity;
+	/* z-index: 1; */
+}
+.go-to-top:hover{
+	opacity: 1;
+}
 
+.go-to-top svg{
+	fill: var(--color1);
+	transform: rotate(-90deg);
+}
 
 /* --- landscape mobile --- */
 
