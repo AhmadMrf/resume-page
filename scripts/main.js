@@ -163,7 +163,7 @@ portfolioContent = function(box) {
 //  ## load more portfolios ##
 
  let portfolios
-fetch('./portfolios.txt')
+fetch('./files/portfolios.txt')
 .then(Response => Response.json())
 .then(data => {
 	
