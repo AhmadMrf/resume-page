@@ -522,6 +522,7 @@ input[type=submit],
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 }
 
 .main-menu h4 {
@@ -1177,14 +1178,14 @@ header svg.shape:nth-of-type(4) {
 	height: 4rem;
 	border-radius: 50%;
 	background-color: var(--color2);
-	position: fixed;
+	position: sticky;
 	bottom: calc(1vh + 3rem);
-	right: calc(2vw + 3rem);
+	left: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: ease .3s opacity;
-	/* z-index: 1; */
+	transform: translateX(-100%);
 }
 .go-to-top:hover{
 	opacity: 1;
