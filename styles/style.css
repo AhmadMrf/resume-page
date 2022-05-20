@@ -493,6 +493,7 @@ input[type=submit],
 	padding: .5rem 1rem;
 	top: 95%;
 	transition: all .3s;
+	display: none;
 }
 
 .right-menu-navbar li:hover{
@@ -511,6 +512,14 @@ input[type=submit],
 .right-menu-navbar li:hover svg path,
 .right-menu-navbar li.active svg path{
 	fill: var(--color2);
+}
+
+.tippy-box[data-theme~='tippy-theme'] {
+  background-color: var(--color2);
+  color: var(--color1);
+}
+.tippy-box[data-theme~='tippy-theme'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: var(--color2);
 }
 
 /* --- main menu styles --- */

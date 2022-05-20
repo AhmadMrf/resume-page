@@ -15,7 +15,6 @@ const dialogClose = portfolioDialog.querySelector('#dialog-close')
 const portfolioBox = document.querySelector('#portfolio-boxes')
 const loadMore = document.querySelector('#morePortfolio')
 const toggleThemeIcon = rightMenu.querySelector('.toggle-theme')
-const toggleThemeTitle =toggleThemeIcon.querySelector('span')
 
 //## toggle dark mode ##
 
@@ -23,16 +22,19 @@ const toggleThemeTitle =toggleThemeIcon.querySelector('span')
 let isDark
 addEventListener('load', () => {
 	// check localstorage for existing
-if(!localStorage.getItem('isDark')){
-	localStorage.setItem('isDark', JSON.stringify(false));
-}else{
-toggleTheme(1)
-}
+	if(!localStorage.getItem('isDark')){
+		localStorage.setItem('isDark', JSON.stringify(false));
+	}else{
+		toggleTheme(1)
+	}
 })
 toggleThemeIcon.addEventListener('click', () => {
-	
+
 	toggleTheme(0)
 })
+
+
+tippy.setDefaultProps({placement: 'left',theme: 'tippy-theme',});
 
 function toggleTheme(reverse){
 	// when onload i need to aplly theme according to isDark value witout chenge it by toogleTheme func. by 'reverse' parameter i do it. 
@@ -42,16 +44,21 @@ function toggleTheme(reverse){
 
 	if (!isDark) {
 		document.documentElement.style.cssText = '	--color1:#242526;--background:#18191a;--color2: #ffffff;';
-		toggleThemeTitle.textContent = 'Light'
+		toggleThemeIcon.dataset.name = 'Light'
 		isDark = true
 		localStorage.setItem('isDark', JSON.stringify(isDark))
 	} else {
 		document.documentElement.style.cssText = '';
-		toggleThemeTitle.textContent = 'Dark'
+		toggleThemeIcon.dataset.name = 'Dark'
 		isDark = false
 		localStorage.setItem('isDark', JSON.stringify(isDark))
 	}
-}
+
+	tippy(toggleThemeIcon,
+		{
+		content: (item) =>  item.dataset.name
+	 }
+	)}
 
 // ## toggle side menus ##
 
@@ -198,6 +205,14 @@ endUseLoadMore += 3
 }
 })
 
+//  ## right menu tooltip ##
+//get tooltip title from data-name
+const tooltip = tippy(rightMenuNavbarIcons,
+	{
+	content: (item) =>  item.dataset.name
+ }
+)
+
 //  ## scroll behavior ##
 //highlight icon function
 function highlight(id){
@@ -205,6 +220,10 @@ function highlight(id){
 		icon.classList.remove('active')
 		if(icon.dataset.name === id){
 			icon.classList.add('active')
+		  tippy.hideAll()
+			tl = tooltip.find(item=>item.reference.dataset.name==id)
+			tl.show()
+			console.log(tl);
 		}
 	})
 }
@@ -220,21 +239,22 @@ rightMenuNavbarIcons.forEach(icon => {
 	})
 })
 //scroll to highlight icons
-
+let sectionInViewId
 document.body.addEventListener('scroll', () => {
-	let sectionInViewId = getInViewSection()
+	sectionInViewId = getInViewSection()
 	highlight(sectionInViewId)
 })
 
 window.addEventListener('load', () => {
-	let sectionInViewId = getInViewSection()
+  sectionInViewId = getInViewSection()
 	highlight(sectionInViewId)
 })
 
 let arraySections = Array.from(sections)
+let sectionInView
 function getInViewSection(){
-	let sectionInView = arraySections.findIndex(section => {
-		return (section.getBoundingClientRect().y) - 50 > 1
+	sectionInView = arraySections.findIndex(section => {
+		return (section.getBoundingClientRect().y) - 55 > 1
 	})
 	return sectionInViewId = sections[sectionInView - 1].id
 }
