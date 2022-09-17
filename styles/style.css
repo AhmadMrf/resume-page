@@ -225,7 +225,7 @@ input[type="submit"],
   padding-top: 3rem;
   background-color: var(--color1);
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -253,7 +253,7 @@ input[type="submit"],
 
 .left-menu:hover,
 .right-menu:hover {
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 /* --- side- left menu styles --- */
 
@@ -443,7 +443,7 @@ input[type="submit"],
 .right-menu-navbar {
   display: flex;
   flex-flow: column nowrap;
-  gap: calc(1.2vh + 1.5rem);
+  gap: calc(1.2vh + 1.7rem);
   margin-bottom: 3rem;
 }
 
@@ -658,7 +658,7 @@ header svg.shape:nth-of-type(4) {
   /* --n: 4;  (n-1) = maximum column */
   display: grid;
   /* grid-template-columns: repeat(auto-fill, minmax(max(25rem, 100%/var(--n)), 1fr)); */
-  gap: 1.6rem;
+  gap: 5rem 1.6rem;
 }
 
 .my-services-box,
@@ -670,7 +670,15 @@ header svg.shape:nth-of-type(4) {
   flex-flow: column nowrap;
   align-items: center;
   gap: 1.5rem;
+  scroll-snap-align: center;
   background: var(--color1);
+}
+
+.my-services-box,
+.plans-box,
+.portfolio-box{
+  width: 80%;
+  justify-self: center;
 }
 
 .my-services-box {
@@ -779,6 +787,8 @@ header svg.shape:nth-of-type(4) {
   grid-auto-flow: column;
   gap: 1.5rem;
   overflow-x: auto;
+  /* scroll-snap-type: x mandatory; */
+  scroll-behavior: smooth;
 }
 
 .recommend-box {
@@ -832,17 +842,19 @@ header svg.shape:nth-of-type(4) {
 
 .dot-slider-wrapper span {
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  margin: 2rem 0.7rem;
+  margin: 2rem 1rem;
   background-color: var(--yellow2);
 }
 
 .dot-slider-wrapper span:hover {
   background-color: var(--yellow);
 }
-
+.dot-slider-wrapper .active{
+  background-color: var(--yellow);
+}
 /* --- education & history styles --- */
 
 .multi-row-boxes {
@@ -901,7 +913,7 @@ header svg.shape:nth-of-type(4) {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-	padding-top: max(10vw,10vh);
+  padding-top: max(10vw, 10vh);
   width: 100vw;
   height: 100vh;
   background-color: hsla(0, 1%, 17%, 0.8);
@@ -915,12 +927,12 @@ header svg.shape:nth-of-type(4) {
 }
 
 #portfolio-dialog.dialog-open {
-	visibility: visible;
+  visibility: visible;
   opacity: 1;
   transform: scale(1);
 }
 #portfolio-dialog.dialog-open .portfolio-dialog-content {
-	opacity: 1;
+  opacity: 1;
   transform: scale(1);
   flex-basis: 80vmin;
 }
@@ -1210,6 +1222,13 @@ header svg.shape:nth-of-type(4) {
 @media only screen and (min-width: 576px) {
   .multi-colum-boxes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+  .my-services-box,
+  .plans-box,
+  .portfolio-box{
+    width: unset;
+    justify-self: unset;
   }
 }
 
@@ -1237,6 +1256,9 @@ header svg.shape:nth-of-type(4) {
   .contact-info {
     flex: 0 0 35%;
   }
+  .dot-slider-wrapper{
+    display: none;
+  }
 }
 
 /* ---  desktop --- */
@@ -1258,16 +1280,16 @@ header svg.shape:nth-of-type(4) {
     transform: translateX(0);
     padding-top: unset;
   }
-  .right-menu:hover .right-menu-navbar li span {
+  /* .right-menu:hover .right-menu-navbar li span {
     opacity: 0.8;
     animation: right-menu-icon-opacity;
     animation-play-state: paused;
-  }
+  } */
 
   .toggle-theme {
     margin-top: calc(2vh + 2rem);
   }
-  .right-menu-navbar li span,
+  /* .right-menu-navbar li span,
   .toggle-theme span {
     visibility: hidden;
     opacity: 0;
@@ -1278,9 +1300,9 @@ header svg.shape:nth-of-type(4) {
     top: unset;
     transition: all 0.3s;
     z-index: -1;
-  }
+  } */
 
-  .right-menu-navbar li span::after,
+  /* .right-menu-navbar li span::after,
   .toggle-theme span::after {
     display: inline-block;
     border: 0.6rem solid transparent;
@@ -1289,15 +1311,15 @@ header svg.shape:nth-of-type(4) {
     position: absolute;
     bottom: 25%;
     left: 100%;
-  }
+  } */
 
-  .right-menu-navbar li:hover span::after,
+  /* .right-menu-navbar li:hover span::after,
   .right-menu-navbar li.active span::after,
   .toggle-theme:hover span::after {
     content: "";
-  }
+  } */
 
-  .right-menu-navbar li:hover span,
+  /* .right-menu-navbar li:hover span,
   .right-menu-navbar li.active span,
   .toggle-theme:hover span {
     visibility: visible;
@@ -1305,7 +1327,8 @@ header svg.shape:nth-of-type(4) {
     right: calc(100% + 8px);
     color: var(--color1);
     animation: right-menu-icon-opacity 1.5s;
-  }
+  } */
+
   @keyframes right-menu-icon-opacity {
     0% {
       opacity: 1;

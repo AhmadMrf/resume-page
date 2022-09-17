@@ -135,13 +135,20 @@ function portfolioFilter(filter) {
 // ## portfolio dialog toggle and content ##
 
 portfolioBox.addEventListener("click", (e) => {
-  if (e.target.tagName === "DIV") {
+  if (e.target.classList.contains("portfolio-box")) {
     portfolioContent(e.target);
     portfolioDialog.classList.add("dialog-open");
   }
 });
+
 dialogClose.addEventListener("click", () => {
   portfolioDialog.classList.remove("dialog-open");
+});
+
+portfolioDialog.addEventListener("click", (e) => {
+  if (!e.target.closest(".portfolio-dialog-content")) {
+    portfolioDialog.classList.remove("dialog-open");
+  }
 });
 // get element atribute for dialog
 let src, alt;
@@ -199,17 +206,20 @@ function highlight(id) {
     }
   });
 }
+
 //click icons to scroll body
+
 let iconName;
 let sectionOffset;
 rightMenuNavbarIcons.forEach((icon) => {
   icon.addEventListener("click", () => {
     iconName = icon.dataset.name;
     sectionOffset = document.getElementById(iconName).getBoundingClientRect().y;
-    document.body.scrollBy(0, sectionOffset - 50);
+    document.body.scrollBy(0, sectionOffset - 10);
     highlight(iconName);
   });
 });
+
 //scroll to highlight icons
 
 document.body.addEventListener("scroll", () => {
@@ -247,3 +257,39 @@ goToTopBtn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+//  ## slider
+window.addEventListener("resize", () => {
+  createDotSliders(document.querySelectorAll(".one-row-boxes"));
+});
+createDotSliders(document.querySelectorAll(".one-row-boxes"));
+
+function sliderHandler(dot) {
+  let WhichDot = dot.dataset.index;
+  console.log(WhichDot);
+  let sliderContainer = dot.parentElement.previousElementSibling;
+  let totalWidth = sliderContainer.scrollWidth;
+  let currentView = sliderContainer.clientWidth;
+  sliderContainer.scrollLeft = 225 * WhichDot;
+
+}
+
+function createDotSliders(sliderContainer) {
+  sliderContainer.forEach((slider) => {
+    slider.nextElementSibling.innerHTML = "";
+    let eachSlideWidth = slider.scrollWidth / 3;
+    let viewWidth = slider.offsetWidth;
+    let countSlideInView = (viewWidth / eachSlideWidth);
+    let dotCount = countSlideInView <= 1.7 ? 3 : countSlideInView ===3 ? 0 : 2;
+    let dots = [];
+    for (i = 0; i < dotCount; i++) {
+      let dot = document.createElement("span");
+      dot.setAttribute("onclick", "sliderHandler(this)");
+      dot.setAttribute("data-index", i);
+      dots = [...dots, dot];
+    }
+    dots[0]?.classList.add("active");
+    slider.nextElementSibling.append(...dots);
+    slider.scrollLeft = 0;
+  });
+}
