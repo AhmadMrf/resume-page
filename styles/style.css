@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'MockFlowFontWords';
+  src: url('../fonts/MockFlowFont1.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MockFlowFontSentences';
+  src: url('../fonts/MockFlowFont2.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ---- Variables ---- */
 :root {
   /*
@@ -33,6 +46,9 @@
   --small-1: normal 400 1.5rem inter, arial;
   --small-2: normal 400 1.2rem inter, arial;
   --small-3: normal 400 1rem inter, arial;
+
+  --mockups-word : normal 400 1rem MockFlowFontWords, arial;
+  --mockups-sentence :normal 400 1rem MockFlowFontSentences, arial ; 
 }
 
 /*
@@ -791,6 +807,43 @@ header svg.shape:nth-of-type(4) {
   scroll-behavior: smooth;
 }
 
+.one-row-boxes .recommend-box.pre-loader *{
+  font: var(--mockups-word);
+}
+.one-row-boxes .recommend-box.pre-loader span{
+  color: var(--yellow);
+}
+.one-row-boxes .recommend-box.pre-loader .image{
+  display: inline-block;
+  height: 50px;
+  background-color: var(--paragraph);
+  border-radius: 50%;
+  width: 50px;  
+}
+.one-row-boxes .recommend-box.pre-loader > *{
+  border-radius: 1rem;
+  animation: loader 1s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(254, 248, 248, 0) 34%,
+    var(--paragraph) 51%,
+    rgba(254, 248, 248, 0) 61%
+  );
+  background-size: 300%;
+  background-position-x: 0%;
+}
+.one-row-boxes .recommend-box.pre-loader p{
+  font: var(--mockups-sentence);
+}
+
+@keyframes loader {
+  from {
+    background-position-x: 100%;
+  }
+  to {
+    babackground-position-x: 0%;
+  }
+}
 .recommend-box {
   /* some style above */
   grid-column: inherit;
