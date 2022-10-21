@@ -18,37 +18,31 @@ const loadMore = document.querySelector("#morePortfolio");
 const toggleThemeIcon = rightMenu.querySelector(".toggle-theme");
 const toggleThemeTitle = toggleThemeIcon.querySelector("span");
 const commentWrapper = document.querySelector("#recommendations .main-menu-content-wrapper");
-// ## get data from API
+const blogWrapper = document.querySelector("#blog .main-menu-content-wrapper");
 
-const postsApi = "https://dummyjson.com/posts";
-let commentCount = 3;
 // ## create posts and comments dynamicly
-commentWrapper.innerHTML = Array.from({ length: commentCount }, () => {
-  return `
-  <div class="recommend-box pre-loader">
-    <div class="recommend-rating-stars">
-      <span>** **</span>
-    </div>
-    <h4>comment title</h4>
-    <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra
-    morbi. Morbi donec amet....
-    </p>
-    <div class="recommend-box-profile">
-    <span class="image"></span>
-    <div>
-    <h4>fullname user</h4>
-    <p>user job</p>
-    </div>
-    </div>
-    </div>
-    `;
-}).join("");
 
-// const { result: posts, error } = await fetchDataFromDummyjsonApi(postsApi, commentCount, true); //fetchDataFromApi(endpoint [ url ],limit count [ number ],get post users [true])
-// const d = await fetchDataFromDummyjsonApi(postsApi, commentCount, true); //fetchDataFromApi(endpoint [ url ],limit count [ number ],get post users [true])
-// console.log(d);
-fetchDataFromDummyjsonApi(postsApi, commentCount, true).then(({ result: posts, error }) => {
+function preLoader(elementWrapper, count) {
+  const elementBox = elementWrapper.firstElementChild;
+  elementBox.classList.add("pre-loader");
+  let images = elementBox.querySelectorAll("img");
+  if (images) {
+    for (let img of images) {
+      img.src = "#";
+      img.alt = "";
+    }
+  }
+  let elementBoxes = Array.from({ length: count }, () => elementBox.outerHTML).join("");
+  elementWrapper.innerHTML = "";
+  elementWrapper.insertAdjacentHTML("beforeend", elementBoxes);
+  return elementWrapper.outerHTML;
+}
+
+preLoader(blogWrapper, 3);
+preLoader(commentWrapper, 3);
+
+// ## get data from API
+fetchDataFromDummyjsonApi(3, true).then(({ result: posts, error }) => {
   if (posts) {
     let comments = posts.map((post) => {
       let stars = Array.from({ length: post.reactions }, (star) => {
@@ -360,6 +354,3 @@ function createDotSliders(sliderContainer) {
     slider.scrollLeft = 0;
   });
 }
-window.addEventListener("readystatechange", (e) => {
-  console.log(document.readyState);
-});
