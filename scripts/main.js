@@ -41,11 +41,11 @@ function preLoader(elementWrapper, count) {
 preLoader(blogWrapper, 3);
 preLoader(commentWrapper, 3);
 
-// ## get data from API
-fetchDataFromDummyjsonApi(3, true).then(({ result: posts, error }) => {
-  if (posts) {
-    let comments = posts.map((post) => {
-      let stars = Array.from({ length: post.reactions }, (star) => {
+// ## get comment data from API
+fetchDataFromDummyjsonApi(3).then(({ result, error }) => {
+  if (result) {
+    let comments = result.map((post) => {
+      let stars = Array.from({ length: post.star.toString().length }, () => {
         return `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 13.7115L12.9107 12.722L14.5446 17.75L9 13.7115ZM18 7.2125H11.1161L9 0.740234L6.88393 7.2125H0L5.57143 11.2242L3.45535 17.6965L9.02679 13.6848L12.4554 11.2242L18 7.2125Z" fill="#FFB400"></path>
       </svg>`;
@@ -59,10 +59,10 @@ fetchDataFromDummyjsonApi(3, true).then(({ result: posts, error }) => {
           <h4>${post.title}</h4>
           <p>${post.body}</p>
           <div class="recommend-box-profile">
-            <img src="${post.userId.image}" alt="profile 1 image">
+            <img src="${post.avatar}" alt="profile 1 image">
             <div>
-              <h4>${post.userId.firstName} ${post.userId.lastName}</h4>
-              <p>${post.userId.company.name}</p>
+              <h4 title="Fullname : ${post.first_name} ${post.last_name}" >${post.first_name} ${post.last_name}</h4>
+              <p title="Company : ${post.company}" >${post.company}</p>
             </div>
           </div>
         </div>
@@ -74,6 +74,28 @@ fetchDataFromDummyjsonApi(3, true).then(({ result: posts, error }) => {
   }
 });
 
+// ## get blog data from API
+fetchDataFromDummyjsonApi(3).then(({ result, error }) => {
+  if (result) {
+    let blogs = result.map((blog) => {
+      return `
+      <div class="blog-box">
+              <div class="blog-box-image">
+                <img src="${blog.image}" alt="blog image1" />
+              </div>
+              <div class="blog-box-content">
+                <h4>${blog.title}</h4>
+                <p>${blog.body}</p>
+                <a href="./pages/page404.html"> Learn more </a>
+              </div>
+            </div>
+      `;
+    });
+    blogWrapper.innerHTML = blogs.join("");
+  } else {
+    console.log("not loaded", error);
+  }
+});
 //## toggle dark mode ##
 let isDark;
 window.addEventListener("load", () => {
